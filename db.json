@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "bear",
+            "price": 200,
+            "image": "assets/images/Majestic-Sow.jpeg",
+            "configure": {
+                "color": "brown",
+                "legs": 4,
+                "eyes": 2,
+                "memory": "super"
+            }
+        },
+        {
+            "id": 2,
+            "title": "bear 300",
+            "price": 400,
+            "image": "assets/images/Majestic-Sow.jpeg",
+            "configure": {
+                "color": "brown",
+                "legs": 4,
+                "eyes": 1,
+                "memory": "super+"
+            }
+        },
+        {
+            "id": 1,
+            "title": "bear 200",
+            "price": 50,
+            "image": "assets/images/Majestic-Sow.jpeg",
+            "configure": {
+                "color": "black",
+                "legs": 4,
+                "eyes": 2,
+                "memory": "super"
+            }
+        }
+    ]
+}
