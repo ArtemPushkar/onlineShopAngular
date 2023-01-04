@@ -9,20 +9,25 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogBoxComponent implements OnInit {
 
-  myForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    price: new FormControl(''),
-    color: new FormControl(''),
-    legs: new FormControl(''),
-    eyes: new FormControl(''),
-    memory: new FormControl(''),
-  })
-
-
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {}
+  ) {
+    if (this.data) this.isNew = false;
+  }
+
+  myForm: FormGroup = new FormGroup({
+    id: new FormControl(this.data?.id ?? null),
+    title: new FormControl(this.data?.title ?? null),
+    price: new FormControl(this.data?.price ?? null),
+    color: new FormControl(this.data?.color ?? null),
+    legs: new FormControl(this.data?.legs ?? null),
+    eyes: new FormControl(this.data?.eyes ?? null),
+    memory: new FormControl(this.data?.memory ?? null),
+  })
+
+  isNew: boolean = true;
+
 
   onNoClick(): void {
     this.dialogRef.close(null);
@@ -31,6 +36,7 @@ export class DialogBoxComponent implements OnInit {
   onSubmit() {
 
     this.data = {
+      id: this.myForm.value.id,
       title: this.myForm.value.title,
       price: this.myForm.value.price,
       image: "assets/images/Majestic-Sow.jpeg",

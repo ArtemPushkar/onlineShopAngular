@@ -11,9 +11,14 @@ export class ProductsService {
 
 
   url: string = 'http://localhost:3000/products';
+  urlBasket: string = 'http://localhost:3000/basket';
 
   getProducts() {
     return this.http.get<IProducts[]>(this.url);
+  };
+
+  getProductFromBasket() {
+    return this.http.get<IProducts[]>(this.urlBasket);
 
   };
 
@@ -27,5 +32,21 @@ export class ProductsService {
 
   deleteProduct(id: number) {
     return this.http.delete<any>(`${this.url}/${id}`);
+  }
+
+  deleteProductFromBusket(id: number) {
+    return this.http.delete<any>(`${this.urlBasket}/${id}`);
+  }
+
+  updateProduct(product: IProducts) {
+    return this.http.put<IProducts>(`${this.url}/${product.id}`, product);
+  }
+
+  updateProductToBasket(product: IProducts) {
+    return this.http.put<IProducts>(`${this.urlBasket}/${product.id}`, product);
+  }
+
+  postProductToBasket(product: IProducts) {
+    return this.http.post<IProducts>(this.urlBasket, product);
   }
 }
