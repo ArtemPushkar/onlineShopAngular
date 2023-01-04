@@ -1,1 +1,31 @@
-<p>dialog-box works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label> title </mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label> price </mat-label>
+        <input matInput formControlName="price">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label> color </mat-label>
+        <input matInput formControlName="color">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label> legs </mat-label>
+        <input matInput formControlName="legs">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label> eyes </mat-label>
+        <input matInput formControlName="eyes">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label> memory </mat-label>
+        <input matInput formControlName="memory">
+      </mat-form-field>
+
+    <button  class="toolbar button" mat-flat-button type="submit">Add product</button>
+    <button  class="toolbar button" mat-flat-button (click)="onNoClick()">Cancel</button>
+
+  </form>
+  

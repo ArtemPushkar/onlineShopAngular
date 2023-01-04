@@ -1,1 +1,27 @@
-<p>product-detail works!</p>
+
+<div class="container">
+
+    <mat-card class="example-card">
+        
+        <mat-card-title>{{product.title}}</mat-card-title>
+        
+        <img mat-card-image class="image" src="{{product.image}}" alt="no Photo sorry">
+        
+        <mat-card-content>
+        <p>By this super bear!</p>
+        <p>Price: {{product.price | currency}}</p>
+        <p>color: {{product.configure.color}}</p>
+        <p>eyes: {{product.configure.eyes}}</p>
+        <p>legs: {{product.configure.legs}}</p>
+        <p>memory: {{product.configure.memory}}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+        <button mat-button>Buy!</button>
+        <button mat-button [routerLink]="['/product', product.id]">SHARE</button>
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>
+
