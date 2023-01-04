@@ -25,11 +25,25 @@ export class DialogBoxComponent implements OnInit {
   ) {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 
   onSubmit() {
-    console.log(this.myForm)
+
+    this.data = {
+      title: this.myForm.value.title,
+      price: this.myForm.value.price,
+      image: "assets/images/Majestic-Sow.jpeg",
+      cofigure: {
+        color: this.myForm.value.color,
+        legs: this.myForm.value.legs,
+        eyes: this.myForm.value.eyes,
+        memory: this.myForm.value.memory
+      }
+    }
+   
+   this.dialogRef.close(this.data)
+
   }
 
   ngOnInit(): void {

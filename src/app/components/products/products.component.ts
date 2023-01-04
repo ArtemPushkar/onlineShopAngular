@@ -31,7 +31,26 @@ export class ProductsComponent implements OnInit {
     dialogConfig.width = '500px'
     dialogConfig.disableClose = true
 
-    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
+    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe( (data) => {
+      if (data)
+      this.postData(data)
+    })
+  }
+
+  postData(data: IProducts) {
+    console.log(data);
+    this.ProductsService.postProduct(data).subscribe( (data) => this.products.push(data) );
+  }
+
+  deleteItem(id: any) {
+    this.ProductsService.deleteProduct(id).subscribe(()=> this.products.find((item) => {
+      if (id === item.id) {
+        let idx = this.products.findIndex((data) => data.id === id)
+        this.products.splice(idx, 1);
+      }
+    }))
   }
 
   ngOnDestroy() {
